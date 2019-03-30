@@ -28,7 +28,7 @@
     <v-toolbar app fixed clipped-left color="red lighten-2">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn flat @click='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
-        ハッピーウェンズデー教
+        hwd教
       </v-btn>
       <v-spacer></v-spacer>
       <div v-show="!isLoggedIn">
@@ -43,7 +43,7 @@
       <router-view/>
     </v-content>
     <v-footer app fixed color="red lighten-2">
-      <span>&copy; 2017</span>
+      <span>&copy; 2019 HappyWednesday教</span>
     </v-footer>
   </v-app>
 </template>

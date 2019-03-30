@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <HwdModal>
-      <template v-slot:button>
-        ログイン
-      </template>
-      <template v-slot:contents>
-        <HwdLogin></HwdLogin>
-      </template>
-    </HwdModal>
-  </div>
+  <HwdModal>
+    <template v-slot:button>
+      ログイン
+    </template>
+    <template v-slot:contents>
+      <HwdLogin></HwdLogin>
+    </template>
+  </HwdModal>
 </template>
 
 <script>
