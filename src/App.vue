@@ -26,18 +26,15 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left color="red lighten-2">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn flat @click='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
-        hwd教
-      </v-btn>
+      <v-toolbar-title>
+        <v-btn flat @click='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
+          hwd教
+        </v-btn>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <div v-show="!isLoggedIn">
-        <HwdSignupModal></HwdSignupModal>
-      </div>
-      <div v-show="!isLoggedIn">
-        <HwdLoginModal></HwdLoginModal>
-      </div>
-      <v-btn flat outline v-show="isLoggedIn" @click="logout">ログアウト</v-btn>
+      <HwdSignupModal v-show="!isLoggedIn"></HwdSignupModal>
+      <HwdLoginModal v-show="!isLoggedIn"></HwdLoginModal>
+      <v-btn flat small v-show="isLoggedIn" @click="logout">ログアウト</v-btn>
     </v-toolbar>
     <v-content>
       <router-view/>
