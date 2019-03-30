@@ -4,6 +4,7 @@
       dark
       flat
       @click="dialog = true"
+      small
     >
       <slot name="button"></slot>
     </v-btn>
