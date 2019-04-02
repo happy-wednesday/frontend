@@ -1,5 +1,22 @@
 <template>
-  <div style="max-width: 900px; margin: auto;">
+  <div>
+    <div v-show="$store.state.loading">
+      <v-container fluid>
+       <v-layout column>
+         <v-flex xs12>
+           <div class="resultContainer">
+             <v-layout align-center justify-center row fill-height>
+               <v-progress-circular
+                 indeterminate
+                 color="red lighten-2"
+               ></v-progress-circular>
+             </v-layout>
+           </div>
+         </v-flex>
+       </v-layout>
+     </v-container>
+    </div>
+    <div style="max-width: 900px; margin: auto;" v-show="!$store.state.loading">
     <v-container
       fluid
       grid-list-lg
@@ -29,6 +46,7 @@
       </v-flex>
     </v-layout>
     </v-container>
+  </div>
   </div>
 </template>
 

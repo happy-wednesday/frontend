@@ -1,10 +1,10 @@
 <template>
-  <HwdModal>
+  <HwdModal  ref="loginModal">
     <template v-slot:button>
       ログイン
     </template>
     <template v-slot:contents>
-      <HwdLogin></HwdLogin>
+      <HwdLogin @close="dialogClose"></HwdLogin>
     </template>
   </HwdModal>
 </template>
@@ -17,6 +17,11 @@ export default {
   components: {
     HwdModal,
     HwdLogin,
+  },
+  methods: {
+    dialogClose(){
+      this.$refs.loginModal.close()
+    },
   },
 }
 </script>

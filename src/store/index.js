@@ -10,6 +10,8 @@ const state = {
   response: [],
   mydata: [],
   isLoggedIn: false,
+  loading: false,
+  dialog: false,
 }
 
 const mutations = {
@@ -34,6 +36,12 @@ const mutations = {
   },
   fetchMyData (state, payload) {
     state.mydata = payload
+  },
+  setLoading(state, payload) {
+    state.loading = payload
+  },
+  setDialog(state, payload) {
+    state.dialog = payload
   },
 }
 

@@ -74,7 +74,8 @@ export default {
     submit () {
       this.nonFieldErrors = []
       this.signup([this.email, this.password]).then(res => {
-        this.$router.go('/')
+        this.$refs.form.reset()
+        this.$emit("close")
       }, err => {
         this.nonFieldErrors = err.response.data.nonFieldErrors
       })

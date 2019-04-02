@@ -3,7 +3,7 @@
     <v-btn
       dark
       flat
-      @click="dialog = true"
+      @click='open'
       small
     >
       <slot name="button"></slot>
@@ -15,7 +15,7 @@
             dark
             flat
           >
-            <v-btn icon dark @click="dialog = false">
+            <v-btn icon dark @click='close'>
               <v-icon>close</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
@@ -30,8 +30,16 @@
 export default {
   data () {
     return {
-      dialog: false,
+      dialog: false
     }
+  },
+  methods: {
+    open() {
+      this.dialog = true
+    },
+    close() {
+      this.dialog = false
+    },
   },
 }
 </script>

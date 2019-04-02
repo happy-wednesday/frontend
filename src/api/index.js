@@ -3,9 +3,24 @@ import contents from './contents'
 import auth from './auth'
 import thread from './thread'
 import response from './response'
+import store from '@/store'
 
 const client = axios.create({
   baseURL: process.env.API_ENDPOINT,
+})
+
+client.interceptors.request.use((config) => {
+  store.commit("setLoading", true)
+  return config
+  }, (error) => {
+    // エラー処理
+})
+
+client.interceptors.response.use((response) => {
+  store.commit("setLoading", false)
+  return response
+  }, (error) => {
+    // エラー処理
 })
 
 client.auth = auth(client)

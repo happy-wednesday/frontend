@@ -1,33 +1,8 @@
 <template>
   <v-app id="app" dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      clipped
-      fixed
-      app
-    >
-      <v-list dense>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>dashboard</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Dashboard</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Settings</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-toolbar app fixed clipped-left color="red lighten-2">
       <v-toolbar-title>
-        <v-btn flat @click='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
+        <v-btn flat @click.stop='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
           hwd教
         </v-btn>
       </v-toolbar-title>
