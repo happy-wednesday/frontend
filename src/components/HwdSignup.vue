@@ -17,7 +17,7 @@
         :rules="[rules.email]"
         box
         color="deep-purple"
-        label="Email address"
+        label="メールアドレス"
         type="email"
       ></v-text-field>
       <v-text-field
@@ -26,7 +26,7 @@
         box
         color="deep-purple"
         counter="6"
-        label="Password"
+        label="パスワード"
         style="min-height: 96px"
         type="password"
       ></v-text-field>
@@ -47,7 +47,7 @@
         class="white--text"
         color="red lighten-2"
         depressed
-      >Submit</v-btn>
+      >入信</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -63,8 +63,8 @@ export default {
     password: undefined,
     nonFieldErrors: [],
     rules: {
-      email: v => !!(v || '').match(/@/) || 'Please enter a valid email',
-      length: len => v => (v || '').length >= len || `Invalid character length, required ${len}`,
+      email: v => !!(v || '').match(/@/) || '正しいメールアドレスにしてください',
+      length: len => v => (v || '').length >= len || `${len}文字以上にしてください`,
       password: v => (v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) ||
         'Password must contain an upper case letter, a numeric character, and a special character',
     },
@@ -76,8 +76,9 @@ export default {
       this.signup([this.email, this.password]).then(res => {
         this.$refs.form.reset()
         this.$emit("close")
-      }, err => {
-        this.nonFieldErrors = err.response.data.nonFieldErrors
+      })
+      .catch(error => {
+        window.alert("すでに登録済みとかアドレスが変")
       })
     },
   },

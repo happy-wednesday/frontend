@@ -64,7 +64,7 @@
               flat
               @click="$refs.form.reset()"
             >
-              Clear
+              消去
             </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>

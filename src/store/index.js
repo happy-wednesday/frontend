@@ -62,7 +62,7 @@ const actions = {
     })
   },
   login ({dispatch, commit}, [email, password]) {
-    return client.auth.login(email, password).then(res => {
+    return client.auth.login(email, password).then((res) => {
       commit('loggedIn', res.data.token)
       dispatch('fetchMyDataAsync')
       return res
@@ -80,7 +80,6 @@ const actions = {
   signup ({dispatch}, [email, password]) {
     return client.auth.register(email, password).then(res => {
       dispatch('login', [email, password])
-      return res
     })
   },
   fetchMyDataAsync ({commit}, payload) {
