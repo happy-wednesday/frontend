@@ -73,7 +73,7 @@
                 </span>
                 {{ data.createdAt | printDate }}
 
-                ID : {{ response.responseId }}
+                ID : {{ data.responseId }}
               </div>
               <h4 v-html="$sanitize(data.message)"></h4>
             </v-card-text>
