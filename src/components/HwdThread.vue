@@ -48,6 +48,8 @@
                   名無しの信者
                 </span>
                 {{ response.createdAt | printDate }}
+
+                ID : {{ response.responseId }}
               </div>
               <h4 v-html="$sanitize(response.message)"></h4>
             </v-card-text>
@@ -70,6 +72,8 @@
                   名無しの信者
                 </span>
                 {{ data.createdAt | printDate }}
+
+                ID : {{ response.responseId }}
               </div>
               <h4 v-html="$sanitize(data.message)"></h4>
             </v-card-text>
