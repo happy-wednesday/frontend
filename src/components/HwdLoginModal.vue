@@ -19,7 +19,7 @@ export default {
     HwdLogin,
   },
   methods: {
-    dialogClose(){
+    dialogClose () {
       this.$refs.loginModal.close()
     },
   },

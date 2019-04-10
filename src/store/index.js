@@ -37,10 +37,10 @@ const mutations = {
   fetchMyData (state, payload) {
     state.mydata = payload
   },
-  setLoading(state, payload) {
+  setLoading (state, payload) {
     state.loading = payload
   },
-  setDialog(state, payload) {
+  setDialog (state, payload) {
     state.dialog = payload
   },
 }

@@ -75,11 +75,12 @@ export default {
       this.nonFieldErrors = []
       this.signup([this.email, this.password]).then(res => {
         this.$refs.form.reset()
-        this.$emit("close")
+        this.$emit('close')
       })
-      .catch(error => {
-        window.alert("すでに登録済みとかアドレスが変")
-      })
+        .catch(error => {
+          window.alert('すでに登録済みとかアドレスが変')
+          console.log(error)
+        })
     },
   },
 }

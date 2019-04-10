@@ -30,14 +30,14 @@
 export default {
   data () {
     return {
-      dialog: false
+      dialog: false,
     }
   },
   methods: {
-    open() {
+    open () {
       this.dialog = true
     },
-    close() {
+    close () {
       this.dialog = false
     },
   },

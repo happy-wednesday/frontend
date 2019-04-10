@@ -76,11 +76,12 @@ export default {
       this.nonFieldErrors = []
       this.login([this.email, this.password]).then(res => {
         this.$refs.form.reset()
-        this.$emit("close")
+        this.$emit('close')
       })
-      .catch(error => {
-        window.alert("メアドかパスワードが違います")
-      })
+        .catch(error => {
+          window.alert('メアドかパスワードが違います')
+          console.log(error)
+        })
     },
   },
 }

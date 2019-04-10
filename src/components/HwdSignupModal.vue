@@ -19,7 +19,7 @@ export default {
     HwdSignup,
   },
   methods: {
-    dialogClose(){
+    dialogClose () {
       this.$refs.signUpModal.close()
     },
   },

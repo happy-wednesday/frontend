@@ -10,22 +10,22 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-  store.commit("setLoading", true)
+  store.commit('setLoading', true)
   return config
-  }, (error) => {
+}, (error) => {
   return Promise.reject(error)
 })
 
 client.interceptors.response.use((response) => {
-  store.commit("setLoading", false)
+  store.commit('setLoading', false)
   return response
-  }, (error) => {
-    store.commit("setLoading", false)
-    if (error.response.status == 401) {
-      store.commit("loggedOut")
-      window.alert("ログインしてください")
-    }
-    return Promise.reject(error)
+}, (error) => {
+  store.commit('setLoading', false)
+  if (error.response.status === 401) {
+    store.commit('loggedOut')
+    window.alert('ログインしてください')
+  }
+  return Promise.reject(error)
 })
 
 client.auth = auth(client)

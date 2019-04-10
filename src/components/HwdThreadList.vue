@@ -42,7 +42,6 @@
           <v-divider></v-divider>
         </v-card>
 
-
       </v-flex>
     </v-layout>
     </v-container>
