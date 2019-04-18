@@ -8,6 +8,7 @@ const state = {
   contents: [],
   thread: [],
   response: [],
+  tree_response: [],
   mydata: [],
   isLoggedIn: false,
   loading: false,
@@ -22,6 +23,25 @@ const mutations = {
     state.thread = payload
   },
   fetchResponse (state, payload) {
+    const tree_algo = (i, depth,tree) => {
+      for(const j of payload.thread){
+        if(i.anchorChild.includes(j.id)){
+          j.depth=depth + 1
+          tree.push(j)
+          tree_algo(j, j.depth,tree)
+        }
+      }
+    }
+    state.tree_response = []
+    for(const i of payload.thread){
+      if(i.anchorParent.length === 0){
+        const tree = []
+        i.depth=0
+        tree.push(i)
+        tree_algo(i, i.depth,tree)
+        state.tree_response.push(tree)
+      }
+    }
     state.response = payload
   },
   loggedIn (state, token) {

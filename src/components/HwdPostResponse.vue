@@ -89,16 +89,34 @@ export default {
     }
   },
   methods: {
+    anchor:function(value){
+      const regexp = /(>+)(\d{1,4})/g
+      const to_lst = []
+      let m
+      while ((m = regexp.exec(value)) != null) {
+        to_lst.push(m);
+      }
+
+      const to=[]
+      for(const i of to_lst){
+        if(this.$store.state.response.thread[Number(i[2]) - 1]){
+          to.push(this.$store.state.response.thread[Number(i[2]) - 1].id)
+        }
+      }
+      console.log(to)
+      return to
+    },
     doPost () {
       if (!this.form) {
         return
       }
       this.$request.response.post(
-        {'thread': this.$route.params.id, 'message': this.message}).then(res => {
-        this.$refs.form.reset()
-        this.dialog = false
-        this.$store.dispatch('fetchResponseAsync', this.$route.params.id)
-      })
+        {'thread': this.$route.params.id, 'message': this.message, 'anchorParent':this.anchor(this.message)})
+          .then(res => {
+            this.$refs.form.reset()
+            this.dialog = false
+            this.$store.dispatch('fetchResponseAsync', this.$route.params.id)
+          })
     },
   },
 }

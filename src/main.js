@@ -8,10 +8,12 @@ import './stylus/main.styl'
 import api from './api'
 import store from './store'
 import sanitizeHTML from 'sanitize-html'
+import VueScrollTo from 'vue-scrollto'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
+Vue.use(VueScrollTo)
 Vue.use(api)
 Vue.prototype.$sanitize = sanitizeHTML
 

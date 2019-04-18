@@ -37,7 +37,7 @@
           <v-card-actions class="px-3 pt-0 pb-2 grey--text">
             {{ data.createdAt | printDate }}
             <v-spacer></v-spacer>
-            {{ data.thread.length + 1 }}
+            {{ data.thread.length }}
           </v-card-actions>
           <v-divider></v-divider>
         </v-card>
