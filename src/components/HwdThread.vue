@@ -60,7 +60,7 @@
             <v-divider></v-divider>
           </v-card>
           <v-dialog v-model="dialog1" scrollable max-width="450px">
-                  <v-card>
+                  <v-card color="grey darken-4">
                     <v-card-text id="dialog">
                       <template v-for="sub_tree in sub_tree_list" >
                         <template v-for="data in sub_tree">
