@@ -38,7 +38,6 @@
           dark
           flat
           hover
-          ripple
           v-for="data in response.thread"
           :key="data.id"
           @click="click(data.id, '#')"
@@ -70,7 +69,6 @@
                           dark
                           flat
                           hover
-                          ripple
                           :key="data.id"
                           :style="styles(data.depth)"
                           @click=""
