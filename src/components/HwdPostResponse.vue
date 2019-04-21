@@ -127,7 +127,10 @@ export default {
       this.$store.commit("setResponseDialog", false)
     },
     onInput(e){
-      this.$store.commit("setResponseMessage", e)
+      if(!e){
+        return this.$store.commit("setResponseMessage", "")
+      }
+      return this.$store.commit("setResponseMessage", e)
     },
     get_response_message(){
       return this.$store.state.response_message

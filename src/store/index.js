@@ -76,10 +76,7 @@ const mutations = {
     state.response_dialog = payload
   },
   setResponseMessage (state, payload) {
-    if(payload){
-      state.response_message = payload
-    }
-      state.response_message = ""
+    state.response_message = payload
   },
   setResponseNumber (state, payload) {
     state.response_message += payload
