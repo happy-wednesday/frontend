@@ -42,7 +42,7 @@
               v-model="name"
               box
               color="red lighten-2"
-              label="名前(ログインして社名や業種を登録すると変更できます)"
+              label="名前(ログインすると変わるよ)"
               placeholder="名無しの信者"
               disabled
             ></v-text-field>

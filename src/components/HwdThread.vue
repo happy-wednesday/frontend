@@ -57,6 +57,12 @@
               </div>
               <h4 style="word-break: break-all;" v-html="$sanitize(data.message)"></h4>
             </v-card-text>
+            <v-card-actions class="py-1">
+              <v-spacer></v-spacer>
+              <v-btn icon @click.stop="response_to(data.responseNumber)">
+                <v-icon>reply</v-icon>
+              </v-btn>
+            </v-card-actions>
             <v-divider></v-divider>
           </v-card>
           <v-dialog v-model="dialog1" scrollable max-width="450px">
@@ -69,7 +75,7 @@
                           dark
                           flat
                           hover
-                          :key="data.id"
+                          :key="data.uuid"
                           :style="styles(data.depth)"
                           @click=""
                           :id="target(data.id, '')"
@@ -139,6 +145,10 @@ export default {
       this.get_sub_tree_list(id)
       this.dialog1=true
       this.$nextTick(() => this.$scrollTo(this.target(id, mark),200,{container: '#dialog',}))
+    },
+    response_to(num){
+      this.$store.commit('setResponseNumber', ">>" + num)
+      this.$store.commit('setResponseDialog', true)
     },
     styles (depth) {
        return {

@@ -7,18 +7,18 @@
       bottom
       right
       fab
-      @click="dialog = true"
+      @click="open"
     >
       <v-icon>create</v-icon>
     </v-btn>
-      <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <v-dialog v-model="$store.state.response_dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
         <v-card>
           <v-toolbar
             cards
             dark
             flat
           >
-            <v-btn icon dark @click="dialog = false">
+            <v-btn icon dark @click="close">
               <v-icon>close</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
@@ -42,12 +42,13 @@
               v-model="name"
               box
               color="red lighten-2"
-              label="名前(ログインして社名や業種を登録すると変更できます)"
+              label="名前(ログインすると変わるよ)"
               placeholder="名無しの信者"
               disabled
             ></v-text-field>
             <v-textarea
-              v-model="message"
+              @input="onInput"
+              :value="get_response_message()"
               :rules="[rules.empty,rules.length(120)]"
               auto-grow
               box
@@ -111,12 +112,25 @@ export default {
         return
       }
       this.$request.response.post(
-        {'thread': this.$route.params.id, 'message': this.message, 'anchorParent':this.anchor(this.message)})
+        {'thread': this.$route.params.id, 'message': this.$store.state.response_message,
+        'anchorParent':this.anchor(this.$store.state.response_message)})
           .then(res => {
             this.$refs.form.reset()
-            this.dialog = false
+            this.close()
             this.$store.dispatch('fetchResponseAsync', this.$route.params.id)
           })
+    },
+    open () {
+      this.$store.commit("setResponseDialog", true)
+    },
+    close () {
+      this.$store.commit("setResponseDialog", false)
+    },
+    onInput(e){
+      this.$store.commit("setResponseMessage", e)
+    },
+    get_response_message(){
+      return this.$store.state.response_message
     },
   },
 }
