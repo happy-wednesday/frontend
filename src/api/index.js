@@ -28,7 +28,7 @@ client.interceptors.response.use((response) => {
   if (error.response.status === 401) {
     store.commit('loggedOut')
     window.alert('ログインしてください')
-    windows.alert(process.env.TEST_TEST)
+    window.alert(process.env.TEST_TEST)
   }
   return Promise.reject(error)
 })
