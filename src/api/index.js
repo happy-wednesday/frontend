@@ -8,8 +8,8 @@ import store from '@/store'
 const client = axios.create({
   baseURL: process.env.API_ENDPOINT,
   headers: {
-    'Api-Token': process.env.API_TOKEN,
-    'Api-Secret-Key': process.env.API_SECRET_KEY,
+    'Api-Token': process.env.HWD_API_TOKEN,
+    'Api-Secret-Key': process.env.HWD_API_SECRET_KEY,
   },
 })
 
