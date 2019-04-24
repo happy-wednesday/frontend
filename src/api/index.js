@@ -7,6 +7,10 @@ import store from '@/store'
 
 const client = axios.create({
   baseURL: process.env.API_ENDPOINT,
+  headers: {
+    'Api-Token': process.env.API_TOKEN,
+    'Api-Secret-Key': process.env.API_SECRET_KEY,
+  },
 })
 
 client.interceptors.request.use((config) => {

@@ -105,12 +105,12 @@ export default {
       }
       this.$request.thread.post(
         {'title': this.title}).then(res => {
-          this.$request.response.post(
-            {'thread': res.data.id, 'message': this.message}).then(res => {
-              this.$refs.form.reset()
-              this.dialog = false
-              this.$store.dispatch('fetchThreadAsync', {offset: 0})
-            })
+        this.$request.response.post(
+          {'thread': res.data.id, 'message': this.message}).then(res => {
+          this.$refs.form.reset()
+          this.dialog = false
+          this.$store.dispatch('fetchThreadAsync', {offset: 0})
+        })
       })
     },
   },

@@ -90,17 +90,17 @@ export default {
     }
   },
   methods: {
-    anchor:function(value){
+    anchor: function (value) {
       const regexp = /(>+)(\d{1,4})/g
       const to_lst = []
       let m
       while ((m = regexp.exec(value)) != null) {
-        to_lst.push(m);
+        to_lst.push(m)
       }
 
-      const to=[]
-      for(const i of to_lst){
-        if(this.$store.state.response.thread[Number(i[2]) - 1]){
+      const to = []
+      for (const i of to_lst) {
+        if (this.$store.state.response.thread[Number(i[2]) - 1]) {
           to.push(this.$store.state.response.thread[Number(i[2]) - 1].id)
         }
       }
@@ -112,27 +112,28 @@ export default {
         return
       }
       this.$request.response.post(
-        {'thread': this.$route.params.id, 'message': this.$store.state.response_message,
-        'anchorParent':this.anchor(this.$store.state.response_message)})
-          .then(res => {
-            this.$refs.form.reset()
-            this.close()
-            this.$store.dispatch('fetchResponseAsync', this.$route.params.id)
-          })
+        {'thread': this.$route.params.id,
+          'message': this.$store.state.response_message,
+          'anchorParent': this.anchor(this.$store.state.response_message)})
+        .then(res => {
+          this.$refs.form.reset()
+          this.close()
+          this.$store.dispatch('fetchResponseAsync', this.$route.params.id)
+        })
     },
     open () {
-      this.$store.commit("setResponseDialog", true)
+      this.$store.commit('setResponseDialog', true)
     },
     close () {
-      this.$store.commit("setResponseDialog", false)
+      this.$store.commit('setResponseDialog', false)
     },
-    onInput(e){
-      if(!e){
-        return this.$store.commit("setResponseMessage", "")
+    onInput (e) {
+      if (!e) {
+        return this.$store.commit('setResponseMessage', '')
       }
-      return this.$store.commit("setResponseMessage", e)
+      return this.$store.commit('setResponseMessage', e)
     },
-    get_response_message(){
+    get_response_message () {
       return this.$store.state.response_message
     },
   },

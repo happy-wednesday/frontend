@@ -116,44 +116,44 @@ export default {
   data () {
     return {
       dialog1: false,
-      sub_tree_list:[],
+      sub_tree_list: [],
     }
   },
   computed: {
     response () {
       return this.$store.state.response
     },
-    tree_response() {
+    tree_response () {
       return this.$store.state.tree_response
     },
   },
   methods: {
-    get_sub_tree_list(id){
+    get_sub_tree_list (id) {
       this.sub_tree_list = []
-      for(const i of this.tree_response){
-        for(const j of i){
-          if(j.id === id){
+      for (const i of this.tree_response) {
+        for (const j of i) {
+          if (j.id === id) {
             this.sub_tree_list.push(i)
           }
         }
       }
     },
-    target(id, mark){
-      return mark + "id_" + id
+    target (id, mark) {
+      return mark + 'id_' + id
     },
-    click(id,mark){
+    click (id, mark) {
       this.get_sub_tree_list(id)
-      this.dialog1=true
-      this.$nextTick(() => this.$scrollTo(this.target(id, mark),200,{container: '#dialog',}))
+      this.dialog1 = true
+      this.$nextTick(() => this.$scrollTo(this.target(id, mark), 200, {container: '#dialog'}))
     },
-    response_to(num){
-      this.$store.commit('setResponseNumber', ">>" + num)
+    response_to (num) {
+      this.$store.commit('setResponseNumber', '>>' + num)
       this.$store.commit('setResponseDialog', true)
     },
     styles (depth) {
-       return {
-         '--margin': depth*10+"px",
-       }
+      return {
+        '--margin': depth * 10 + 'px',
+      }
     },
   },
   mounted () {

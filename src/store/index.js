@@ -13,7 +13,7 @@ const state = {
   isLoggedIn: false,
   loading: false,
   response_dialog: false,
-  response_message: "",
+  response_message: '',
 }
 
 const mutations = {
@@ -27,30 +27,30 @@ const mutations = {
     const copy_thread = JSON.parse(JSON.stringify(payload.thread))
 
     const getUniqueStr = () => {
-     var strong = 1000;
-     return new Date().getTime().toString(16)  + Math.floor(strong*Math.random()).toString(16)
+      var strong = 1000
+      return new Date().getTime().toString(16) + Math.floor(strong * Math.random()).toString(16)
     }
 
-    const tree_algo = (i, depth,tree) => {
-      for(const j of copy_thread){
-        if(i.anchorChild.includes(j.id)){
+    const tree_algo = (i, depth, tree) => {
+      for (const j of copy_thread) {
+        if (i.anchorChild.includes(j.id)) {
           const j_copy = JSON.parse(JSON.stringify(j))
-          j_copy.depth=depth + 1
+          j_copy.depth = depth + 1
           j_copy.uuid = getUniqueStr()
           tree.push(j_copy)
-          tree_algo(j_copy, j_copy.depth,tree)
+          tree_algo(j_copy, j_copy.depth, tree)
         }
       }
     }
     state.tree_response = []
-    for(const i of copy_thread){
-      if(i.anchorParent.length === 0){
+    for (const i of copy_thread) {
+      if (i.anchorParent.length === 0) {
         const tree = []
         const i_copy = JSON.parse(JSON.stringify(i))
-        i_copy.depth=0
+        i_copy.depth = 0
         i_copy.uuid = getUniqueStr()
         tree.push(i_copy)
-        tree_algo(i_copy, i_copy.depth,tree)
+        tree_algo(i_copy, i_copy.depth, tree)
         state.tree_response.push(tree)
       }
     }
