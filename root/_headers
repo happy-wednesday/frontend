@@ -1,3 +1,3 @@
 /*
-  Api-Token: fVY0RXcSlZdm,
-  Api-Secret-Key: 343383e78c0be5492a5c2dd4d60748ed,
+  Api-Token: process.env.API_TOKEN,
+  Api-Secret-Key: process.env.API_SECRET_KEY,
