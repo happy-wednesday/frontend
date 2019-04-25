@@ -17,16 +17,6 @@ const router = new Router({
       component: HwdTopView,
     },
     {
-      path: '/login',
-      name: 'HwdLogin',
-      component: HwdLogin,
-    },
-    {
-      path: '/signup',
-      name: 'HwdSignup',
-      component: HwdSignup,
-    },
-    {
       path: '/thread',
       name: 'HwdThreadList',
       component: HwdThreadList,
