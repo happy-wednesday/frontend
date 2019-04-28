@@ -166,7 +166,6 @@ export default {
   margin-left:var(--margin);
 }
 .thread-title {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1;
