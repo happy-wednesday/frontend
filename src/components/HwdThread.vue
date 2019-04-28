@@ -22,7 +22,7 @@
           <v-card
           flat
           color="red lighten-3"
-          class="thread-title"
+          id="thread-title"
           >
             <v-card-text class="py-2">
               <h4>{{ response.title }}</h4>
@@ -165,7 +165,7 @@ export default {
   --margin:10px;
   margin-left:var(--margin);
 }
-.thread-title {
+#thread-title {
   position: sticky;
   top: 0;
   z-index: 1;
