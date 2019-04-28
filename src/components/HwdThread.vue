@@ -17,16 +17,12 @@
      </v-container>
     </div>
     <div style="max-width: 900px; margin: auto;" v-show="!$store.state.loading">
-      <v-container
-        fluid
-        grid-list-lg
-      >
       <v-layout row>
         <v-flex xs12 sm6 offset-sm3>
           <v-card
-          dark
           flat
-          color="red lighten-2"
+          color="red lighten-3"
+          class="thread-title"
           >
             <v-card-text class="py-2">
               <h4>{{ response.title }}</h4>
@@ -35,7 +31,6 @@
           </v-card>
 
           <v-card
-          dark
           flat
           hover
           v-for="data in response.thread"
@@ -72,7 +67,6 @@
                         <template v-for="data in sub_tree">
                           <v-card
                           class="tree"
-                          dark
                           flat
                           hover
                           :key="data.uuid"
@@ -104,7 +98,6 @@
           </v-dialog>
         </v-flex>
       </v-layout>
-      </v-container>
     </div>
   </div>
 </template>
@@ -171,5 +164,11 @@ export default {
 .tree{
   --margin:10px;
   margin-left:var(--margin);
+}
+.thread-title {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-btn
-      dark
       flat
       @click='open'
       small
@@ -12,10 +11,9 @@
         <v-card>
           <v-toolbar
             cards
-            dark
             flat
           >
-            <v-btn icon dark @click='close'>
+            <v-btn icon @click='close'>
               <v-icon>close</v-icon>
             </v-btn>
             <v-spacer></v-spacer>

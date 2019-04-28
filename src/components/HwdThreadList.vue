@@ -17,14 +17,9 @@
      </v-container>
     </div>
     <div style="max-width: 900px; margin: auto;" v-show="!$store.state.loading">
-    <v-container
-      fluid
-      grid-list-lg
-    >
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <v-card
-        dark
         flat
         hover
         v-for="data in thread"
@@ -44,7 +39,6 @@
 
       </v-flex>
     </v-layout>
-    </v-container>
   </div>
   </div>
 </template>

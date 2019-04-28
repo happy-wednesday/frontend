@@ -1,6 +1,6 @@
 <template>
   <v-app id="app" dark>
-    <v-toolbar app fixed clipped-left color="red lighten-2">
+    <v-toolbar clipped-left color="red lighten-2">
       <v-toolbar-title>
         <v-btn flat @click.stop='$router.push({name: "HwdTopView"})' class="title font-weight-bold">
           hwd教

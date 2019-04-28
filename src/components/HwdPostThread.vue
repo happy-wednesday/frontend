@@ -2,7 +2,6 @@
   <div>
     <v-btn
       color="blue lighten-2"
-      dark
       fixed
       bottom
       right
@@ -15,10 +14,9 @@
         <v-card>
           <v-toolbar
             cards
-            dark
             flat
           >
-            <v-btn icon dark @click="dialog = false">
+            <v-btn icon @click="dialog = false">
               <v-icon>close</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
