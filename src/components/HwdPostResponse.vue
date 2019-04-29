@@ -90,14 +90,14 @@ export default {
   methods: {
     anchor: function (value) {
       const regexp = /(>+)(\d{1,4})/g
-      const to_lst = []
+      const toList = []
       let m
       while ((m = regexp.exec(value)) != null) {
-        to_lst.push(m)
+        toList.push(m)
       }
 
       const to = []
-      for (const i of to_lst) {
+      for (const i of toList) {
         if (this.$store.state.response.thread[Number(i[2]) - 1]) {
           to.push(this.$store.state.response.thread[Number(i[2]) - 1].id)
         }

@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HwdTopView from '@/components/HwdTopView'
-import HwdLogin from '@/components/HwdLogin'
-import HwdSignup from '@/components/HwdSignup'
 import HwdThreadList from '@/components/HwdThreadList'
 import HwdThreadView from '@/components/HwdThreadView'
 
